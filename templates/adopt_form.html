@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Adopt {{ pet.name}} - Adopt a Pet{% endblock %}
+
+{% block content %}
+  <h1>Adoption request for {{ pet.name }}</h1>
+  <p>Please fill in your details.</p>
+
+  <form method="post">
+    <fieldset>
+        <legend>Your details</legend>
+        <label>Name
+            <input type="text" name="name" required/>
+        </label>
+        <label>Email
+            <input type="text" name="email" required/>
+        </label>
+    </fieldset>
+
+    <fieldset>
+        <legend>Message</legend>
+        <textarea name="message" rows="5" placeholder="Tell us about your details if you want."></textarea>
+    </fieldset>
+
+    <button type="submit">Submit</button>
+    <a class="button" href="{{ url_for('pet_detail', pet_id=pet.id) }}">Cancel</a>
+  </form>
+{% endblock %}

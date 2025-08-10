@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %} {{ pet.name }} - Adopt a Pet {% endblock %}
+
+{% block content %}
+  <article class="pet-detail">
+    <header>
+        <h1>{{ pet.name }}</h1>
+        <p>{{ pet.species.name if pet.species else 'Unknown' }}</p>
+        <p>Age: {{ pet.age or N/A }} years</p>
+        <p>Breed: {{ pet.breed or 'Unknown' }}</p>
+    </header>
+
+    {% if pet.image_url %}
+        <img src="{{ pet.image_url }}" alt="{{ pet.name }}" class="pet-image">
+    {% endif %}
+
+    {% if pet.description %}
+        <p class="desc">{{ pet.description }}</p>
+    {% endif %}
+
+    {% if pet.available %}
+        <p>
+            <a class="button" href="{{ url_for('adopt', pet_id=pet.id) }}">Aplly to adopt</a>
+        </p>
+    {% else %}
+        <p><strong>Already found new home!</strong></p>
+    {% endif %}
+  </article>
+
+  <section class="comments">
+    <h2>Comments</h2>
+    {% if comments %}
+      <ul>
+        {% for c in comments %}
+          {% include '_comment.html' %}
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No comments yet.</p>
+    {% endif %}
+{% endblock %}
+
+    <h3>Leave a comment</h3>
+    <form method="post">
+        <label>Your name
+            <input name="author" required />
+        </label>
+        <label>Comment
+            <textarea name="body" required></textarea>
+        </label>
+        <button type="submit">Post</button>
+    </form>
+</section>{& endlock %}
+
