@@ -30,6 +30,7 @@ This project demonstrates backend architecture design, relational database model
 ---
 
 ## 🏗 Project Structure
+```bash
 adopt_a_pet/
 │
 ├── app.py # App configuration & database setup
@@ -41,6 +42,7 @@ adopt_a_pet/
 ├── static/ # CSS, images, uploads
 │
 └── site.db # SQLite database (generated)
+```
 
 The application follows separation of concerns:
 - Configuration (app)
