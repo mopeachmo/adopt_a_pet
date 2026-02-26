@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}Request sent! - Adopt a Pet {% endblock %}
+
+{% block content %}
+  <h1> Thank you!</h1>
+  <p>Your request for <strong>{{ req.pet.name}}</strong> has been submitted.</p>
+  <p><a href="{{ url_for('list_pets') }}">Back to all pets</a></p>
+{% endblock %}

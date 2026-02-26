@@ -1,0 +1,12 @@
+<article class="card">
+    <a href="{{ url_for('pet_detail', pet_id=pet.id) }}" class="card-link">
+        {% if pet.image_url %}
+            <img src="{{ pet.image_url }}" alt="{{ pet.name }}"/>
+        {% endif %}
+        <h3>{{ pet.name }}</h3>
+        <p class="muted">{{ pet.species.name if pet.species else 'Unknown' }}</br>
+            {{ pet.age or 'N/A' }} years</br>
+            {{ pet.breed or 'Unknown' }}
+        </p>
+     </a>   
+</article>

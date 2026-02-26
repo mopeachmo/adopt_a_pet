@@ -1,0 +1,31 @@
+{% extends "base.html" %} 
+
+{% block title %} Home - Adopt a Pet {% endblock %}
+
+{% block content %}
+  <h1>Find your new family</h1>  
+  <form method="get" action="{{ url_for('list_pets') }}" class="Search">
+      <label for="species">Search by species</label>
+      <select name="species" id="species" onchange="this.form.submit()">
+        <option value="">All Species</option>
+        {% for sp in species %}
+          <option value="{{ sp.name }}" {% if selected == sp.name %}selected{% endif %}>
+            {{ sp.name }}
+          </option>
+        {% endfor %}
+      </select>
+      <noscript><button type="submit">Filter</button></noscript>
+  </form></br>
+  
+  <h2> Recently added</h2>
+  {% if pets %}
+   <div class="grid">
+      {% for pet in pets %}
+        {% include "_pet_card.html" %}        
+      {% endfor %}
+   </div>
+  {% else %}
+    <p>No pets available at the moment.</p>
+  {% endif %}
+{% endblock %}
+
