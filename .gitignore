@@ -1,2 +1,15 @@
+# Python
 __pycache__/
 *.pyc
+
+# Virtual environments
+venv/
+.venv/
+
+# Flask / SQLite
+instance/
+*.db
+
+# OS
+.DS_Store
+Thumbs.db
