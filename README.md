@@ -107,6 +107,7 @@ Open in browser:
 http://127.0.0.1:5000
 ```
 
+---
 
 ## 📚 What I Learned
 
@@ -121,6 +122,8 @@ http://127.0.0.1:5000
 - Structuring a Flask application for maintainability
 
 - Writing seed scripts for reproducible environments
+
+---
 
 ## 🔮 Future Improvements
 
